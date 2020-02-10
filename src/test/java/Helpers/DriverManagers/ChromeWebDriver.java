@@ -13,14 +13,24 @@ public class ChromeWebDriver {
 
     protected static WebDriver driver;
     protected WebDriverWait wait;
-    Actions action;
+    protected Actions action;
+
+    public static WebDriver getDriver() {
+        return driver;
+    }
+    public WebDriverWait getWait() {
+        return wait;
+    }
+
+    public Actions getAction() {
+        return action;
+    }
 
     public static void driverLoad(){
         WebDriverManager.chromedriver().setup();
     }
 
     public void create() {
-        WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions().setHeadless(false);
         driver = new ChromeDriver(options);
         wait = new WebDriverWait(driver, 15);

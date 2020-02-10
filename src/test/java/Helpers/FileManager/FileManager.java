@@ -21,16 +21,13 @@ public class FileManager {
 
         file = new File(String.format("books/bookList_%s.csv", formatForDateNow.format(dateNow)));
 
-        //Create the file
         if (file.createNewFile())
-        {
             logger.debug("File is created!");
-        }
 
     }
 
     public void writeHeader() throws IOException {
-        writer = new FileWriter(file);
+        writer = new FileWriter(file, true);
         writer.write("Link;Name;Author;Price;Description");
         writer.write("\n");
         writer.close();

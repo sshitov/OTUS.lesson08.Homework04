@@ -3,6 +3,7 @@
 /bin
 /logs
 /target
+!books
 
 # Log file
 *.log

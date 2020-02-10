@@ -1,40 +1,44 @@
 package MIFTests;
 
+import Helpers.DriverManagers.ChromeWebDriver;
+import Helpers.TestSteps.Steps;
 import org.junit.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
 
-public class BookInfoCrawler extends baseTest {
+public class BookInfoCrawler {
+    ChromeWebDriver chromeWebDriver = new ChromeWebDriver();
+    Steps step = new Steps();
 
     @BeforeClass
     public static void setupWebDriver() {
-        setup();
+        ChromeWebDriver.driverLoad();
     }
 
     @Before
     public void createWebDriver() {
-        driverInitialize();
+        chromeWebDriver.create();
     }
 
     @After
     public void closeWebDriver() {
-        driverClose();
+        ChromeWebDriver.quit();
     }
 
     @Test
     public void getBookCollection() throws IOException, InterruptedException {
 
-        createCsvFile();
+        step.createCsvFile();
 
-        openStartPage(baseUrl + audioBook);
+        step.openStartPage(step.getBaseUrl() + step.getAudioBook());
 
-        ArrayList<String> bookLinkList = new ArrayList<>(getUrlList());
+        ArrayList<String> bookLinkList = new ArrayList<>(step.getUrlList());
 
         for (String s : bookLinkList) {
 
-           writeToCsvFile(collectInfoOnThePage(s));
+           step.writeToCsvFile(step.collectInfoOnThePage(s));
         }
 
     }
