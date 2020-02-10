@@ -18,12 +18,13 @@ public class Steps {
 
     // Initialize logger
     private static final Logger logger = LogManager.getLogger(BookInfoCrawler.class.getName());
+
     // Initialize Helpers
     FileManager fileManager = new FileManager();
 
     // Open page method
     public void openPage(String url) {
-                ChromeWebDriver.getDriver().get(url);
+        ChromeWebDriver.getDriver().get(url);
     }
 
     // The method that get all audio book list element and return URL array
@@ -41,9 +42,9 @@ public class Steps {
             // Scroll to last element in List WebElement
             ChromeWebDriver.getAction().moveToElement(mainPage.getLoader()).perform();
 
-           // Wait for the list is load
+            // Wait for the list is load
             Thread.sleep(2000); // This is not an elegant solution, but it is necessary, because without "Thread.sleep",
-                                      // the site does not have time to load and freezes. Website Feature that we can't fix.
+            // the site does not have time to load and freezes. Website Feature that we can't fix.
 
             List<WebElement> newElementsState = mainPage.getBookList();
 
@@ -56,7 +57,6 @@ public class Steps {
                 break;
             }
         }
-
         return urls;
     }
 
