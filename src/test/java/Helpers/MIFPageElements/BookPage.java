@@ -6,19 +6,14 @@ import org.openqa.selenium.support.FindBy;
 
 public class BookPage {
 
-    ChromeWebDriver chromeWebDriver = new ChromeWebDriver();
-
     @FindBy(css = "h1 span")
-    WebElement bookName;
+    protected WebElement bookName;
 
     @FindBy(css = ".position-top .author.active")
-    WebElement bookAuthor;
+    protected WebElement bookAuthor;
 
     @FindBy(css = ".l-book-buy-panel-top [data-type='audiobook']")
-    WebElement bookPrice;
-
-    @FindBy(css = "#about .description")
-    WebElement bookDescription;
+    protected WebElement bookPrice;
 
     public String getBookName() {
         return bookName.getAttribute("innerText");
@@ -32,7 +27,7 @@ public class BookPage {
         return bookPrice.getAttribute("data-price");
     }
 
-    public String getDescription(){
-        return bookDescription.getAttribute("innerText");
+    public String getPageUrl() {
+        return ChromeWebDriver.getDriver().getCurrentUrl();
     }
 }

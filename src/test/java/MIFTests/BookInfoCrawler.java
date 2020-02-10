@@ -4,7 +4,6 @@ import Helpers.DriverManagers.ChromeWebDriver;
 import Helpers.MIFPageElements.MainPage;
 import Helpers.TestSteps.Steps;
 import org.junit.*;
-
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -38,18 +37,10 @@ public class BookInfoCrawler {
 
         ArrayList<String> bookLinkList = new ArrayList<>(step.getUrlList());
 
-        for (String s : bookLinkList) {
+        for (String url : bookLinkList) {
 
-           step.writeValuesToCsvFile(step.collectInfoOnThePage(s));
+           step.writeValuesToCsvFile(step.collectInfoOnThePage(url));
+
         }
-
-    }
-
-    @Test
-    public void tst() throws IOException {
-        step.openPage(mainPage.getBaseUrl() + mainPage.getAudioBook());
-
-        step.createCsvFile();
-
     }
 }

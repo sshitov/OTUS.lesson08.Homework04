@@ -13,7 +13,7 @@ public class ChromeWebDriver {
 
     protected static WebDriver driver;
     protected WebDriverWait wait;
-    protected Actions action;
+    protected static Actions action;
 
     public static WebDriver getDriver() {
         return driver;
@@ -23,7 +23,7 @@ public class ChromeWebDriver {
         return wait;
     }
 
-    public Actions getAction() {
+    public static Actions getAction() {
         return action;
     }
 
@@ -34,8 +34,8 @@ public class ChromeWebDriver {
     public void create() {
         ChromeOptions options = new ChromeOptions().setHeadless(false);
         driver = new ChromeDriver(options);
-        wait = new WebDriverWait(driver, 15);
-        driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
+        wait = new WebDriverWait(driver, 5);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         action = new Actions(driver);
     }
