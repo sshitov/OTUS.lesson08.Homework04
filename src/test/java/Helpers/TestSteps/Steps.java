@@ -19,18 +19,7 @@ public class Steps {
     FileManager fileManager = new FileManager();
     ChromeWebDriver chromeWebDriver = new ChromeWebDriver();
 
-    public String getBaseUrl() {
-        return baseUrl;
-    }
-
-    public String getAudioBook() {
-        return audioBook;
-    }
-
-    protected String baseUrl = "https://www.mann-ivanov-ferber.ru/";
-    protected String audioBook = "books/allbooks/?booktype=audiobook";
-
-    public void openStartPage(String url) {
+    public void openPage(String url) {
                 ChromeWebDriver.getDriver().get(url);
     }
 
@@ -86,7 +75,7 @@ public class Steps {
 
     }
 
-    public void writeToCsvFile(ArrayList<String> array) throws IOException {
+    public void writeValuesToCsvFile(ArrayList<String> array) throws IOException {
         fileManager.writeNewLine(array);
     }
 

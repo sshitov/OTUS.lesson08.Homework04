@@ -18,6 +18,7 @@ public class ChromeWebDriver {
     public static WebDriver getDriver() {
         return driver;
     }
+    
     public WebDriverWait getWait() {
         return wait;
     }

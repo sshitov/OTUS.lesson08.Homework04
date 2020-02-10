@@ -12,8 +12,8 @@ import java.util.Date;
 
 public class FileManager {
     public static final Logger logger = LogManager.getLogger(FileManager.class.getName());
-    FileWriter writer;
-    File file;
+    protected FileWriter writer;
+    protected File file;
 
     public void create() throws IOException {
         Date dateNow = new Date();
